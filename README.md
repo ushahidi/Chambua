@@ -10,6 +10,7 @@ To deploy the API in a production environment, you need the following components
 
 * Java 1.6 or higher
 * Apache Tomcat (http://tomcat.apache.org) or other servlet container
+* Apache Maven (http://maven.apache.org) - For managing dependencies and the build process
 
 
 Using the tagging API
