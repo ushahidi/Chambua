@@ -278,9 +278,7 @@ public class TaggingApiServlet extends HttpServlet {
 				coordinates.put("longitude", geoData.get("lng"));
 				places.put("coordinates", coordinates);
 				
-				JSONObject placesEntry = new JSONObject();
-				placesEntry.put(location, places);
-				geocodedLocations.put(placesEntry);
+				geocodedLocations.put(places);
 			}
 		}
 		
