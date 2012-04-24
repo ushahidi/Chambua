@@ -80,12 +80,19 @@ public class TaggingApiServlet extends HttpServlet {
 				// Fetch the entities
 				JSONObject entities = getEntities(txtContent);
 				
+				// Status to be returned by the API
+				String statusStr = entities.length() > 0 ? "OK" : "NO_DATA";
+				
+				JSONObject apiResult = new JSONObject();
+				apiResult.put("status", statusStr);
+				apiResult.put("results", entities);
+				
 				// Set the MIME type
 				response.setContentType("application/json; charset=utf-8");
 				
 				// Write to output stream
 				PrintWriter writer = response.getWriter();
-				writer.println(entities.toString());
+				writer.println(apiResult.toString());
 				
 				// Cleanup
 				writer.flush();
