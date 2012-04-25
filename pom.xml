@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>SwiftRiver-Tagger</groupId>
 	<artifactId>swiftriver-tagger</artifactId>
-	<version>0.1-rc1</version>
 	<packaging>war</packaging>
-	<name>SwiftRiver Semantic Tagger</name>
+	<name>SwiftRiver Semantic Tagging API</name>
+	<version>0.1</version>
 	<description>Semantic Tagging API</description>
 	<url>http://www.swiftly.org</url>
 	<build>

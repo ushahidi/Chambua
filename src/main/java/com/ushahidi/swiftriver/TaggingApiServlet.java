@@ -129,7 +129,9 @@ public class TaggingApiServlet extends HttpServlet {
 			return null;
 		}
 		
-		LOG.info("Text received. Performing entity extraction...");
+		// Log the received text - Assists in identifying encoding errors 
+		LOG.info(String.format("Extracting entites from %s", text));
+		
 		// Run classification 
 		String labeledText = TaggingInit.classifier.classifyWithInlineXML(text.trim());
 		
@@ -181,15 +183,16 @@ public class TaggingApiServlet extends HttpServlet {
 			// Adjust the matcher
 			m = startPattern.matcher(labeledText);
 		}
+		LOG.info("Entity extraction complete");
 		
 		// JSON object to store the output to be returned
 		JSONObject jsonTags = new JSONObject();
 
-		LOG.info("Geocoding location tags...");
-		
 		// Geocode the location entities
 		Set<String> locations = entityMap.get("location");
 		if (locations.size() > 0) {
+			LOG.info("Geocoding location tags...");
+
 			String baseURL = TaggingInit.geocoderURL();
 			String urlParameters = TaggingInit.gecoderURLParams();
 			JSONArray geocodedLocations = new JSONArray();
@@ -202,6 +205,9 @@ public class TaggingApiServlet extends HttpServlet {
 			
 			LOG.info(String.format("Geocoded %d location items", locations.size()));
 			jsonTags.put("location", geocodedLocations);
+		} else {
+			// No location entries found
+			LOG.info("No location entries found");
 		}
 		
 		// Build out the JSON
