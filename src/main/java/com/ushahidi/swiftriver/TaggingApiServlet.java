@@ -81,7 +81,8 @@ public class TaggingApiServlet extends HttpServlet {
 				JSONObject entities = getEntities(txtContent);
 				
 				// Status to be returned by the API
-				String statusStr = entities.length() > 0 ? "OK" : "NO_DATA";
+				String statusStr = (entities != null && entities.length() > 0) 
+					? "OK" : "NO_DATA";
 				
 				JSONObject apiResult = new JSONObject();
 				apiResult.put("status", statusStr);
@@ -130,7 +131,7 @@ public class TaggingApiServlet extends HttpServlet {
 		}
 		
 		// Log the received text - Assists in identifying encoding errors 
-		LOG.info(String.format("Extracting entites from %s\n\n", text));
+		LOG.info(String.format("Extracting entites from: %s\n", text));
 		
 		// Run classification 
 		String labeledText = TaggingInit.classifier.classifyWithInlineXML(text.trim());
@@ -190,7 +191,7 @@ public class TaggingApiServlet extends HttpServlet {
 
 		// Geocode the location entities
 		Set<String> locations = entityMap.get("location");
-		if (locations.size() > 0) {
+		if (locations != null && locations.size() > 0) {
 			LOG.info("Geocoding location tags...");
 
 			String baseURL = TaggingInit.geocoderURL();
