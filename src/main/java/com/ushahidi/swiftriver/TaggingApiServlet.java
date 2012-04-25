@@ -130,7 +130,7 @@ public class TaggingApiServlet extends HttpServlet {
 		}
 		
 		// Log the received text - Assists in identifying encoding errors 
-		LOG.info(String.format("Extracting entites from %s", text));
+		LOG.info(String.format("Extracting entites from %s\n\n", text));
 		
 		// Run classification 
 		String labeledText = TaggingInit.classifier.classifyWithInlineXML(text.trim());
