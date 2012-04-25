@@ -53,6 +53,9 @@ public class TaggingInit extends HttpServlet {
 	/** Property with the URL parameters for the geocoder */
 	private static final String PROP_GEOCODER_URL_PARAMS = "tagger.url.geocoder.params";
 	
+	/** Property with the base directory containing the classifiers */
+	private static final String PROP_CLASSIFIER_DIR = "tagger.classifier.dir";
+	
 	/** Reference for the classifier */
 	@SuppressWarnings("rawtypes")
 	public static AbstractSequenceClassifier classifier = null;
@@ -100,11 +103,15 @@ public class TaggingInit extends HttpServlet {
 			InputStream stream = context.getResourceAsStream(propertiesFile);
 			applicationProperties.load(stream);
 			
+			// Get the base directory for the classifiers
+			String classifierDir = applicationProperties.getProperty(PROP_CLASSIFIER_DIR);
+			
 			// Get the property name of the default classifier
 			String defaultClassifierProperty = applicationProperties.getProperty(PROP_CLASSIFIER_DEFAULT);
 			
 			// Get the name of the classifier
-			String classifierName = applicationProperties.getProperty(defaultClassifierProperty);
+			String classifierName = String.format(classifierDir+"/%s", 
+					applicationProperties.getProperty(defaultClassifierProperty));
 			
 			// Properties for the Geocoder
 			geocoderURL = applicationProperties.getProperty(PROP_GEOCODER_URL);
