@@ -4,10 +4,14 @@
 	<groupId>SwiftRiver-Tagger</groupId>
 	<artifactId>swiftriver-tagger</artifactId>
 	<packaging>war</packaging>
-	<name>SwiftRiver Semantic Tagging API</name>
-	<version>0.1</version>
-	<description>Semantic Tagging API</description>
-	<url>http://www.swiftly.org</url>
+	<version>0.2-SNAPSHOT</version>
+
+	<!-- Properties -->
+	<properties>
+		<org.slf4j.version>1.7.5</org.slf4j.version>
+		<org.springframework.version>3.2.0.RELEASE</org.springframework.version>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -26,27 +30,83 @@
 		</plugins>
 	</build>
 	<dependencies>
+		<!-- Spring Framework -->
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.16</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${org.springframework.version}</version>
+			<exclusions>
+				<!-- Exclude Commons Logging in favor of SLF4j -->
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<dependency>
-			<groupId>servletapi</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.4-20040521</version>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${org.springframework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.syncthemall</groupId>
+			<artifactId>boilerpipe</artifactId>
+			<version>1.2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>1.9.12</version>
+		</dependency>
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>1.0.13</version>
+		</dependency>
+		<dependency>
+			<groupId>edu.stanford.nlp</groupId>
+			<artifactId>stanford-corenlp</artifactId>
+			<version>3.2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.dozer</groupId>
+			<artifactId>dozer</artifactId>
+			<version>5.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>1.9.5</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>tomcat</groupId>
-			<artifactId>commons-logging</artifactId>
-			<version>4.0.6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20090211</version>
-			<type>jar</type>
-			<scope>compile</scope>
+			<artifactId>servlet-api</artifactId>
+			<version>5.5.23</version>
 		</dependency>
 	</dependencies>
+	
 </project>
