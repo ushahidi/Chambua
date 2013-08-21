@@ -13,10 +13,15 @@ To deploy the API in a production environment, you need the following components
 * Apache Maven (http://maven.apache.org) - For managing dependencies and the build process
 
 
+Build & Deploy Procedure
+------------------------
+
+
+
 Using the tagging API
 ---------------------
-The endpoint for the tagging API is `entities.json` This endpoint takes one parameter `text`
-which must be UTF-8 encoded and submitted via HTTP POST. The API returns a 405 - Method not allowed
+The endpoint for the tagging API is `entities.json` This endpoint takes one parameter - `text` -
+which must be UTF-8 encoded and submitted via HTTP POST. The API returns a 405 - __Method not allowed__ -
 for all requests that are not submitted HTTP POST. By default, the API returns a JSON response. XML and other
 output formats are currently not supported.
 
