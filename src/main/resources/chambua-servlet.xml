@@ -55,7 +55,7 @@
 	<!-- Production profile -->	
 	<beans profile="prod">
 		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-			<property name="locations" value="${ext.prop.dir}/chambua.properties"/>
+			<property name="locations" value="file://${ext.prop.dir}/chambua.properties"/>
 		</bean>	
 	</beans>
 	
