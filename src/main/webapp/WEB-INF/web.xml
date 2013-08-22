@@ -1,26 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-	id="WebApp_ID" version="2.5">
-	<display-name>SwiftRiver Tagging REST API</display-name>
+<web-app>
+	<display-name>Semantic Tagging REST API</display-name>
+
+	<context-param>
+		<param-name>spring.profiles.active</param-name>
+		<param-value>prod</param-value>
+	</context-param>
 	
 	<servlet>
-		<servlet-name>tagger</servlet-name>
+		<servlet-name>tagging-service</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
-			<param-name>contextConfiLocation</param-name>
-			<param-value>classpath:/applicationContext.xml</param-value>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:tagging-service-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 	
 	<servlet-mapping>
-		<servlet-name>tagger</servlet-name>
+		<servlet-name>tagging-service</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	
+
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
 </web-app>

@@ -11,7 +11,7 @@
 	<context:annotation-config />
 
 	<!-- Auto-detect annotated controllers -->	
-	<context:component-scan base-package="com.ushahidi.swiftriver.tagger.controller"/>
+	<context:component-scan base-package="com.ushahidi.swifriver.tagger.controller"/>
 	
 	<!-- Configure message converters -->
 	<mvc:annotation-driven>
@@ -29,23 +29,8 @@
 		<property name="targetMethod" value="configure"/>
 		<property name="arguments">
 			<list>
-				<value type="org.codehaus.jackson.map.DeserializationConfig.Feature" >FAIL_ON_UNKNOWN_PROPERTIES</value>
+				<value type="org.codehaus.jackson.map.DeserializationConfig.Feature">FAIL_ON_UNKNOWN_PROPERTIES</value>
 				<value>false</value>
-			</list>
-		</property>
-	</bean>
-
-	<!-- Property loading -->
-	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations" value="${ext.prop.dir}/tagger.properties"/>
-	</bean>	
-	
-	<bean id="classifier" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetClass" value="edu.stanford.nlp.ie.crf.CRFClassifier" />
-		<property name="targetMethod" value="getClassifier" />
-		<property name="arguments">
-			<list>
-				<value>${tagger.classifier.dir}/${${tagger.classifier.default}}</value>
 			</list>
 		</property>
 	</bean>
@@ -54,7 +39,7 @@
 	<bean class="com.ushahidi.swiftriver.tagger.service.EntityExtractorService">
 		<property name="gisgraphyUrl" value="${gisgraphy.api.url}" />
 		<property name="gisgraphyUrlParameters" value="${gisgraphy.api.url.params}"/>
-		<property name="classifier" value="classifier" />
+		<property name="classifierFilePath" value="${tagger.classifier.dir}/${${tagger.classifier.default}}" />
 		<property name="articleExtractor" ref="articleExtractor" />
 	</bean>
 	
@@ -66,4 +51,18 @@
 	
 	<!-- Dozer Bean mapper -->
 	<bean id="beanMapper" class="org.dozer.DozerBeanMapper" />
+
+	<!-- Production profile -->	
+	<beans profile="prod">
+		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations" value="${ext.prop.dir}/tagger.properties"/>
+		</bean>	
+	</beans>
+	
+	<!-- Test profile -->
+	<beans profile="test">
+		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations" value="classpath:/tagger-test.properties"/>
+		</bean>	
+	</beans>
 </beans>
