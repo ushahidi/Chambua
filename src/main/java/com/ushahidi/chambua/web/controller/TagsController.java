@@ -1,4 +1,4 @@
-package com.ushahidi.swifriver.tagger.controller;
+package com.ushahidi.chambua.web.controller;
 
 import java.util.Map;
 
@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ushahidi.swifriver.tagger.exception.BadRequestException;
-import com.ushahidi.swiftriver.tagger.dto.APIResponseDTO;
-import com.ushahidi.swiftriver.tagger.service.EntityExtractorService;
+import com.ushahidi.chambua.service.EntityExtractorService;
+import com.ushahidi.chambua.web.dto.APIResponseDTO;
+import com.ushahidi.chambua.web.exception.BadRequestException;
 
 @Controller
 @RequestMapping("/v1")

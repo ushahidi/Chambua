@@ -1,4 +1,4 @@
-package com.ushahidi.swiftriver.tagger.dto;
+package com.ushahidi.chambua.web.dto;
 
 import java.util.List;
 

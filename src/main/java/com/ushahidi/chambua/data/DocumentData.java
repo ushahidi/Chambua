@@ -1,4 +1,4 @@
-package com.ushahidi.swiftriver.tagger.data;
+package com.ushahidi.chambua.data;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  * @author ekala
  *
  */
-public class APIResponse {
+public class DocumentData {
 
 	private List<String> people;
 	

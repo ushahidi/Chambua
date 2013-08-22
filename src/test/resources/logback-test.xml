@@ -8,7 +8,7 @@
     </encoder>
   </appender>
   
-  <logger name="com.ushahidi" level="DEBUG"/>
+  <logger name="com.ushahidi.chambua" level="DEBUG"/>
 
   <root level="warn">
     <appender-ref ref="STDOUT" />

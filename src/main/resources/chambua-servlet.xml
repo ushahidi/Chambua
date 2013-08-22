@@ -11,7 +11,7 @@
 	<context:annotation-config />
 
 	<!-- Auto-detect annotated controllers -->	
-	<context:component-scan base-package="com.ushahidi.swifriver.tagger.controller"/>
+	<context:component-scan base-package="com.ushahidi.chambua.web.controller"/>
 	
 	<!-- Configure message converters -->
 	<mvc:annotation-driven>
@@ -36,10 +36,10 @@
 	</bean>
 
 	<!-- Entity extractor service -->
-	<bean class="com.ushahidi.swiftriver.tagger.service.EntityExtractorService">
+	<bean class="com.ushahidi.chambua.service.EntityExtractorService">
 		<property name="gisgraphyUrl" value="${gisgraphy.api.url}" />
 		<property name="gisgraphyUrlParameters" value="${gisgraphy.api.url.params}"/>
-		<property name="classifierFilePath" value="${tagger.classifier.dir}/${${tagger.classifier.default}}" />
+		<property name="classifierFilePath" value="${chambua.classifier.dir}/${${chambua.classifier.default}}" />
 		<property name="articleExtractor" ref="articleExtractor" />
 	</bean>
 	
@@ -55,14 +55,14 @@
 	<!-- Production profile -->	
 	<beans profile="prod">
 		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-			<property name="locations" value="${ext.prop.dir}/tagger.properties"/>
+			<property name="locations" value="${ext.prop.dir}/chambua.properties"/>
 		</bean>	
 	</beans>
 	
 	<!-- Test profile -->
 	<beans profile="test">
 		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-			<property name="locations" value="classpath:/tagger-test.properties"/>
+			<property name="locations" value="classpath:/chambua-test.properties"/>
 		</bean>	
 	</beans>
 </beans>

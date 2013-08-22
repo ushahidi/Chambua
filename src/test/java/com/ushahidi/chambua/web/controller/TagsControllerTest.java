@@ -1,4 +1,4 @@
-package com.ushahidi.swiftriver.tagger.controller;
+package com.ushahidi.chambua.web.controller;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -20,7 +20,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 /**
- * Integration tests for {@link com.ushahidi.swiftriver.tagger.controller.TagsController}
+ * Integration tests for {@link com.ushahidi.chambua.web.controller.TagsController}
  * 
  * @author ekala
  *
@@ -28,7 +28,7 @@ import org.springframework.web.context.WebApplicationContext;
 @RunWith(SpringJUnit4ClassRunner.class)
 @WebAppConfiguration
 @ContextConfiguration(locations={
-		"classpath:tagging-service-servlet.xml"
+		"classpath:chambua-servlet.xml"
 })
 @ActiveProfiles(value = {"test"})
 public class TagsControllerTest {

@@ -1,4 +1,4 @@
-package com.ushahidi.swiftriver.tagger.service;
+package com.ushahidi.chambua.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,9 +24,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ushahidi.swiftriver.tagger.data.APIResponse;
-import com.ushahidi.swiftriver.tagger.data.APIResponse.Location;
-import com.ushahidi.swiftriver.tagger.dto.APIResponseDTO;
+import com.ushahidi.chambua.data.DocumentData;
+import com.ushahidi.chambua.data.DocumentData.Location;
+import com.ushahidi.chambua.web.dto.APIResponseDTO;
 
 import de.l3s.boilerpipe.BoilerpipeProcessingException;
 import de.l3s.boilerpipe.extractors.ArticleExtractor;
@@ -167,7 +167,7 @@ public class EntityExtractorService {
 			m = startPattern.matcher(labeledText);
 		}
 		
-		APIResponse apiResponse = new APIResponse();
+		DocumentData apiResponse = new DocumentData();
 		if (entityMap.containsKey("person")) {
 			apiResponse.setPeople(new ArrayList<String>(entityMap.get("person")));
 		}
@@ -207,7 +207,7 @@ public class EntityExtractorService {
 
 		LOGGER.debug("Preparing to geocode {} possible location name(s)", locationNames.size());
 
-		List<Location> locations = new ArrayList<APIResponse.Location>();
+		List<Location> locations = new ArrayList<DocumentData.Location>();
 		for (String locationName: locationNames) {
 			LOGGER.debug("Geocoding '{}'", locationName);
 
