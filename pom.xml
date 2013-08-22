@@ -27,6 +27,14 @@
 				<artifactId>maven-eclipse-plugin</artifactId>
 				<version>2.9</version>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.16</version>
+				<configuration>
+					<argLine>-Xms512m -Xmx3g</argLine>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
@@ -54,14 +62,31 @@
 			<version>${org.springframework.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>com.syncthemall</groupId>
-			<artifactId>boilerpipe</artifactId>
-			<version>1.2.1</version>
-		</dependency>
-		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.12</version>
+		</dependency>
+		<dependency>
+			<groupId>tomcat</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>5.5.23</version>
+		</dependency>
+
+		<!-- Boilerpipe -->
+		<dependency>
+			<groupId>de.l3s.boilerpipe</groupId>
+			<artifactId>boilerpipe</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sourceforge.nekohtml</groupId>
+			<artifactId>nekohtml</artifactId>
+			<version>1.9.18</version>
+		</dependency>
+		<dependency>
+			<groupId>xerces</groupId>
+			<artifactId>xercesImpl</artifactId>
+			<version>2.11.0</version>
 		</dependency>
 
 		<!-- Logging -->
@@ -90,6 +115,8 @@
 			<artifactId>dozer</artifactId>
 			<version>5.4.0</version>
 		</dependency>
+		
+		<!-- Testing -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
@@ -102,10 +129,18 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
+
 		<dependency>
-			<groupId>tomcat</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>5.5.23</version>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path-assert</artifactId>
+			<version>0.8.1</version>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 	
