@@ -35,5 +35,5 @@ Chambua exposes a single endpoint - ``/v1/tags`` - that accepts HTTP POST reques
 	curl -H "ContentType:application/json" -X POST -d @data/sample_001.txt http://localhost:8080/chambua/v1/tags
 
 ## Authors
-* Emmanuek Kala ([@bytebandit](https://twitter.com/bytebandit))
+* Emmanuel Kala ([@bytebandit](https://twitter.com/bytebandit))
 
