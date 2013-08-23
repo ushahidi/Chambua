@@ -11,7 +11,7 @@ To install Chambua on your system, the following packages must be installed:
 
 
 ### 1. Download the Stanford NER Models
-Stanford CoreNLP provides a set of pre-trained classifiers. These can be downloaded from [here](http://www.oracle.com/technetwork/java/index.html). The trained classifiers can be found in the ``classifiers`` directory of the extracted archive
+Stanford CoreNLP provides a set of pre-trained classifiers. These can be downloaded from [here](http://nlp.stanford.edu/software/corenlp.shtml). The trained classifiers can be found in the ``classifiers`` directory of the extracted archive
 
 ### 2. Checkout the code from GitHub
 
