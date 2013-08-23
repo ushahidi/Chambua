@@ -52,17 +52,8 @@
 	<!-- Dozer Bean mapper -->
 	<bean id="beanMapper" class="org.dozer.DozerBeanMapper" />
 
-	<!-- Production profile -->	
-	<beans profile="prod">
-		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-			<property name="locations" value="file://${ext.prop.dir}/chambua.properties"/>
-		</bean>	
-	</beans>
+	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations" value="file://#{ systemEnvironment['CHAMBUA_HOME'] }/chambua.properties"/>
+	</bean>	
 	
-	<!-- Test profile -->
-	<beans profile="test">
-		<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-			<property name="locations" value="classpath:/chambua-test.properties"/>
-		</bean>	
-	</beans>
 </beans>
