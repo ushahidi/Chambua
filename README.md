@@ -15,7 +15,7 @@ Stanford CoreNLP provides a set of pre-trained classifiers. These can be downloa
 
 ### 2. Checkout the code from GitHub
 
-		git checkout git://github.com/ushahidi/Chambua.git
+	git checkout git://github.com/ushahidi/Chambua.git
 
 ### 3. Configure chambua.properties
 Create ``chambua.properties`` from the ``chambua.properties.sample`` file located in ``src/main/resources``
@@ -32,7 +32,7 @@ Open ``chabmua.properties`` and point ``chambua.classifier.dir`` to the director
 ## Using the REST API
 Chambua exposes a single endpoint - ``/v1/tags`` - that accepts HTTP POST requests.
 
-	curl -H "ContentType:application/json" -X POST -d @data/sample_001.txt http://localhost:8080/chambua/v1/tags
+	curl -H "Content-Type:application/json" -X POST -d @data/sample_001.txt http://localhost:8080/chambua/v1/tags
 
 ## Authors
 * Emmanuel Kala ([@bytebandit](https://twitter.com/bytebandit))

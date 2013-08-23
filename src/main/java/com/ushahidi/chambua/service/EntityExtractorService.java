@@ -114,10 +114,9 @@ public class EntityExtractorService {
 		} catch (BoilerpipeProcessingException e) {
 			LOGGER.error("An error occurred while cleaning the input: {}", e.getMessage());
 		}
+
 		String labeledText = classifier.classifyWithInlineXML(cleanedContent);
-		
-		LOGGER.debug("Labeled text: {}", labeledText);
-		
+	
 		// Entity types/classes available in the classifier e.g. PERSON, LOCATION, ORGANIZATION
 		Set<String> tags = classifier.labels();
 		String background = classifier.backgroundSymbol();
