@@ -25,7 +25,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ushahidi.chambua.data.DocumentData;
-import com.ushahidi.chambua.data.DocumentData.Location;
+import com.ushahidi.chambua.data.DocumentData.Place;
 import com.ushahidi.chambua.web.dto.APIResponseDTO;
 
 import de.l3s.boilerpipe.BoilerpipeProcessingException;
@@ -178,10 +178,10 @@ public class EntityExtractorService {
 
 		// Geocode the location entities via the Gisgraphy REST API
 		if (entityMap.containsKey("location")) {
-			List<Location> locations;
+			List<Place> places;
 			try {
-				locations = geocodeLocationNames(entityMap.get("location"));
-				apiResponse.setPlaces(locations);
+				places = geocodeLocationNames(entityMap.get("location"));
+				apiResponse.setPlaces(places);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
 			} catch (IOException e) {
@@ -202,12 +202,12 @@ public class EntityExtractorService {
 	 * @throws IOException
 	 */
 	@SuppressWarnings("unchecked")
-	private List<Location> geocodeLocationNames(Set<String> locationNames) 
+	private List<Place> geocodeLocationNames(Set<String> locationNames) 
 			throws MalformedURLException, IOException {
 
 		LOGGER.debug("Preparing to geocode {} possible location name(s)", locationNames.size());
 
-		List<Location> locations = new ArrayList<DocumentData.Location>();
+		List<Place> locations = new ArrayList<DocumentData.Place>();
 		for (String locationName: locationNames) {
 			LOGGER.debug("Geocoding '{}'", locationName);
 
@@ -234,10 +234,11 @@ public class EntityExtractorService {
 			if (((Integer) responseData.get("numFound")) > 0) {
 				List<Map<String, Object>> geolocated = (List<Map<String, Object>>) responseData.get("docs");
 				for (Map<String, Object> entry: geolocated) {
-					Location location = new Location();
+					Place location = new Place();
 					location.setName(locationName);
 					location.setLatitude(((Number) entry.get("lat")).floatValue());
 					location.setLongitude(((Number) entry.get("lng")).floatValue());
+					location.setPlaceType((String) entry.get("placetype"));
 
 					locations.add(location);
 				}

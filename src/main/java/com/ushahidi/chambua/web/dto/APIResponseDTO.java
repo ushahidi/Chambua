@@ -17,7 +17,7 @@ public class APIResponseDTO {
 	
 	private List<String> organizations;
 	
-	private List<Location> places;
+	private List<Place> places;
 
 	private List<String> nationalities;
 	
@@ -46,15 +46,13 @@ public class APIResponseDTO {
 		this.organizations = organizations;
 	}
 
-	public List<Location> getPlaces() {
+	public List<Place> getPlaces() {
 		return places;
 	}
 
-
-	public void setPlaces(List<Location> places) {
+	public void setPlaces(List<Place> places) {
 		this.places = places;
 	}
-
 
 	public List<String> getNationalities() {
 		return nationalities;
@@ -97,11 +95,11 @@ public class APIResponseDTO {
 	}
 
 
-	public static class Location {
+	public static class Place {
 		
 		private String name;
 		
-		@JsonProperty("type")
+		@JsonProperty("place_type")
 		private String placeType;
 		
 		private Float latitude;

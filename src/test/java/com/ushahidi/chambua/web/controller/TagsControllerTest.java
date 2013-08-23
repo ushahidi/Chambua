@@ -66,6 +66,7 @@ public class TagsControllerTest {
 			.andExpect(content().contentType("application/json;charset=UTF-8"))
 			.andExpect(jsonPath("$.people", contains("Bashar")))
 			.andExpect(jsonPath("$.places[0].name").value("Russia"))
+			.andExpect(jsonPath("$.places[0].place_type").value("Country"))
 			.andExpect(jsonPath("$.organizations", contains("United Nations")));
 	}
 }
