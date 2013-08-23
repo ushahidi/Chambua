@@ -178,9 +178,9 @@ public class EntityExtractorService {
 
 		// Geocode the location entities via the Gisgraphy REST API
 		if (entityMap.containsKey("location")) {
-			List<Place> places;
+			List<Place> places = new ArrayList<DocumentData.Place>();
 			try {
-				places = geocodeLocationNames(entityMap.get("location"));
+				places = geocodePlaceNames(entityMap.get("location"));
 				apiResponse.setPlaces(places);
 			} catch (MalformedURLException e) {
 				e.printStackTrace();
@@ -202,12 +202,12 @@ public class EntityExtractorService {
 	 * @throws IOException
 	 */
 	@SuppressWarnings("unchecked")
-	private List<Place> geocodeLocationNames(Set<String> locationNames) 
+	private List<Place> geocodePlaceNames(Set<String> locationNames) 
 			throws MalformedURLException, IOException {
 
 		LOGGER.debug("Preparing to geocode {} possible location name(s)", locationNames.size());
 
-		List<Place> locations = new ArrayList<DocumentData.Place>();
+		List<Place> places = new ArrayList<DocumentData.Place>();
 		for (String locationName: locationNames) {
 			LOGGER.debug("Geocoding '{}'", locationName);
 
@@ -234,20 +234,20 @@ public class EntityExtractorService {
 			if (((Integer) responseData.get("numFound")) > 0) {
 				List<Map<String, Object>> geolocated = (List<Map<String, Object>>) responseData.get("docs");
 				for (Map<String, Object> entry: geolocated) {
-					Place location = new Place();
-					location.setName(locationName);
-					location.setLatitude(((Number) entry.get("lat")).floatValue());
-					location.setLongitude(((Number) entry.get("lng")).floatValue());
-					location.setPlaceType((String) entry.get("placetype"));
+					Place place = new Place();
+					place.setName(locationName);
+					place.setLatitude(((Number) entry.get("lat")).floatValue());
+					place.setLongitude(((Number) entry.get("lng")).floatValue());
+					place.setPlaceType((String) entry.get("placetype"));
 
-					locations.add(location);
+					places.add(place);
 				}
 			}
 		}
 		
-		LOGGER.debug("Successfully geocoded {} location name(s)", locations.size());
+		LOGGER.debug("Successfully geocoded {} location name(s)", places.size());
 
-		return locations;
+		return places;
 	}
 	
 
