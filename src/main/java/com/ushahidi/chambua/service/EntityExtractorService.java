@@ -77,8 +77,8 @@ public class EntityExtractorService {
 	}
 
 	/**
-	 * Creates a {@link CRFClassifier} object using from the serialized
-	 * classifier specified in <code>classifierPath</code>
+	 * Creates a {@link CRFClassifier} object from the serialized
+	 * classifier specified in <code>classifierFilePath</code>
 	 *  
 	 * @param classifierFilePath The absolute file path of the serialized classifier
 	 */
