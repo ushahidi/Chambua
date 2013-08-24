@@ -3,8 +3,6 @@ package com.ushahidi.chambua.web.dto;
 import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonProperty;
-import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
 
 /**
  * This class represents a data transfer object (DTO)
@@ -13,7 +11,6 @@ import org.codehaus.jackson.map.annotate.JsonSerialize.Inclusion;
  * @author ekala
  *
  */
-@JsonSerialize(include = Inclusion.NON_NULL)
 public class APIResponseDTO {
 
 	private List<String> people;

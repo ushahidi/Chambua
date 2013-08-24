@@ -34,6 +34,16 @@
 			</list>
 		</property>
 	</bean>
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject" ref="objectMapper"/>
+		<property name="targetMethod" value="configure"/>
+		<property name="arguments">
+			<list>
+				<value type="org.codehaus.jackson.map.SerializationConfig.Feature">WRITE_NULL_PROPERTIES</value>
+				<value>false</value>
+			</list>
+		</property>
+	</bean>
 
 	<!-- Entity extractor service -->
 	<bean class="com.ushahidi.chambua.service.EntityExtractorService">
