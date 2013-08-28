@@ -10,6 +10,9 @@
 	<properties>
 		<org.slf4j.version>1.7.5</org.slf4j.version>
 		<org.springframework.version>3.2.0.RELEASE</org.springframework.version>
+		<maven.compiler.source>1.6</maven.compiler.source>
+		<maven.compiler.target>1.6</maven.compiler.target>
+		<stanford.corenlp.version>3.2.0</stanford.corenlp.version>
 	</properties>
 
 	<build>
@@ -37,8 +40,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
 				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
+					<source>${maven.compiler.source}</source>
+					<target>${maven.compiler.target}</target>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -114,7 +117,7 @@
 		<dependency>
 			<groupId>edu.stanford.nlp</groupId>
 			<artifactId>stanford-corenlp</artifactId>
-			<version>3.2.0</version>
+			<version>${stanford.corenlp.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.dozer</groupId>
@@ -149,4 +152,7 @@
 		</dependency>
 	</dependencies>
 	
+	<name>Chambua</name>
+	<url>http://chambua.ushahidi.com</url>
+	<description>Chambua is an open-source semantic tagging application that analyses text and extracts names of people, places (&amp; geocodes them), organisations and other items such as expressions of time, money, nationality and religion</description>
 </project>
