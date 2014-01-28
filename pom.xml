@@ -12,7 +12,7 @@
 		<org.springframework.version>3.2.0.RELEASE</org.springframework.version>
 		<maven.compiler.source>1.6</maven.compiler.source>
 		<maven.compiler.target>1.6</maven.compiler.target>
-		<stanford.corenlp.version>3.2.0</stanford.corenlp.version>
+		<stanford.corenlp.version>3.3.0</stanford.corenlp.version>
 	</properties>
 
 	<build>
