@@ -15,7 +15,7 @@ Stanford CoreNLP provides a set of pre-trained classifiers. These can be downloa
 
 ### 2. Checkout the code from GitHub
 
-	git checkout git://github.com/ushahidi/Chambua.git
+	git clone git://github.com/ushahidi/Chambua.git
 
 ### 3. Configure chambua.properties
 
