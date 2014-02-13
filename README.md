@@ -37,6 +37,8 @@ Stanford CoreNLP provides a set of pre-trained classifiers. These can be downloa
 ## Using the REST API
 Chambua exposes a single endpoint - ``/v1/tags`` - that accepts HTTP POST requests.
 
+__NOTE: For the following examples to work, you have to be in the directory where you cloned the project__ 
+
 To use the build you have just created in the preceding step:
 
 	curl -H "Content-Type:application/json" -X POST -d @data/sample_001.txt http://localhost:8080/chambua/v1/tags
@@ -44,6 +46,7 @@ To use the build you have just created in the preceding step:
 Alternatively, you can use our publicly hosted Chambua install:
 
 	curl -H "Content-Type:application/json" -X POST -d @data/sample_001.txt http://chambua.ushahidi.com/v1/tags
+
 
 ## Authors
 * Emmanuel Kala ([@bytebandit](https://twitter.com/bytebandit))
