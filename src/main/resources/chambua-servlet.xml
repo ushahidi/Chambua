@@ -63,7 +63,7 @@
 	<bean id="beanMapper" class="org.dozer.DozerBeanMapper" />
 
 	<bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations" value="file://#{ systemEnvironment['CHAMBUA_HOME'] }/chambua.properties"/>
+        <property name="locations" value="file:///#{ systemEnvironment['CHAMBUA_HOME'] }/chambua.properties"/>
 	</bean>	
 	
 </beans>
