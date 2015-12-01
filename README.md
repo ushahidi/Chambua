@@ -1,7 +1,7 @@
 #Chambua
 Chambua is an open-source semantic tagging application. By exposing a simple REST API, it provides a convenient way to analyse text and extract words/terms that can be classified as people, places & organisations. It can also recognise nationalities, religions, expressions of time and monetary values.
 
-The semantic extraction layer is powerd by [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml) natural language analysis toolset
+The semantic extraction layer is powered by [Stanford CoreNLP](http://nlp.stanford.edu/software/corenlp.shtml) natural language analysis toolset
 
 ## Installation
 To install Chambua on your system, the following packages must be installed:
